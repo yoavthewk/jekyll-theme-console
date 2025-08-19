@@ -72,7 +72,32 @@ textarea { vertical-align: top; }
  */
 .lineno { color: var(--code-color-1); margin-right: 15px; }
 figure.highlight { margin: 5px 0; }
-pre { background-color: var(--background-color);  border: none;  padding: 0;  margin: 0;  overflow:auto;  font-size: $base-font-size;  color: var(--text-color);  line-height: 1.7 !important;  font-family: $base-font-family !important; }
+
+/* Code block wrapper */
+.highlight, pre, .highlight pre {
+  background-color: #f5f5f5 !important;
+  border: 1px solid #ccc !important;
+  border-radius: 6px !important;
+  padding: 1em !important;
+  overflow-x: auto !important;
+}
+
+/* Inline code */
+code {
+  background-color: #fafafa !important;
+  padding: 0.2em 0.4em !important;
+  border-radius: 4px !important;
+  font-family: "Fira Mono", "Courier New", monospace !important;
+  color: #333 !important;
+}
+
+/* Ensure monospace font for block code */
+.highlight pre, pre code {
+  font-family: "Fira Mono", "Courier New", monospace !important;
+  font-size: 0.95em !important;
+  line-height: 1.5 !important;
+}
+
 .highlight .hll { background-color: var(--code-color-2); }
 .highlight .c { color: var(--code-color-1); font-style: italic } /* Comment */
 .highlight .err { color: var(--code-color-3); background-color: var(--code-color-4); } /* Error */
