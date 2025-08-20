@@ -1,6 +1,5 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700');
-@import "_chirpy_code/syntax";
 
 /**
  * Style variables
@@ -10,7 +9,7 @@ $base-font-size:       12.5px !default;
 $mobile-font-size:     12px !default;
 $base-line-height:     1.5 !default;
 $container-width:      90% !default;
-$container-max-width:  900px !default;
+$container-max-width:  1000px !default; /* Increased from 900px */
 
 /**
  * Global
@@ -21,13 +20,47 @@ p, ul, ol { margin: 0px;  color: var(--text-color); }
 a { text-decoration: underline;  color: var(--link-color); }
 a:hover { color: var(--background-color); background-color: var(--base-color); }
 @media only screen and (max-device-width: 500px) { * { font-size: $mobile-font-size !important; } }
+
+/* Updated image styling for consistent sizing */
 img {
-  max-width: 400px;   /* desired width */
-  height: auto;       /* keep aspect ratio */
-  display: block;     /* remove inline spacing */
-  margin: 0 auto;     /* center images if you want */
+  max-width: 100%;        /* Responsive width */
+  width: 700px;           /* Consistent width for all images */
+  height: auto;           /* Maintain aspect ratio */
+  display: block;         /* Remove inline spacing */
+  margin: 20px auto;      /* Center images with more margin */
+  border-radius: 8px;     /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  border: 1px solid #333; /* Border to match terminal theme */
 }
 
+/* Responsive image sizing */
+@media (max-width: 768px) {
+  img {
+    width: 100%;          /* Full width on mobile */
+    max-width: 500px;     /* But not too large */
+  }
+}
+
+/* Special classes for different image sizes */
+.small-image {
+  width: 300px !important;
+  max-width: 100% !important;
+}
+
+.large-image {
+  width: 800px !important;
+  max-width: 100% !important;
+}
+
+.icon-image {
+  width: 32px !important;
+  height: 32px !important;
+  display: inline-block !important;
+  margin: 0 5px !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 4px !important;
+}
 
 /**
  * Layout
@@ -75,3 +108,237 @@ input[type=submit]:hover { color: var(--background-color); background-color: var
 *:focus { outline: none; }
 textarea { vertical-align: top; }
 
+/* Terminal-style code blocks inspired by Chirpy theme */
+
+/* Main code block container */
+pre, pre[class*="language-"] {
+  background: #1e1e1e !important;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin: 1.5em 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Terminal header bar */
+pre::before {
+  content: "Terminal";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #333 0%, #404040 100%);
+  height: 30px;
+  border-bottom: 1px solid #555;
+  position: relative;
+  color: #ccc;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Terminal window controls (traffic light buttons) */
+pre::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: 
+    18px 0 0 #ffbd2e,
+    36px 0 0 #28ca42;
+}
+
+/* Code content */
+pre code, code[class*="language-"] {
+  background: transparent !important;
+  color: #f8f8f2 !important;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', Menlo, Consolas, 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 20px 24px 24px 24px;
+  display: block;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background: #2d2d2d !important;
+  color: #f8f8f2 !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 0.9em;
+  border: 1px solid #444;
+}
+
+/* Language-specific terminal titles */
+pre[class*="language-"]::before { content: attr(class); }
+pre.language-javascript::before,
+pre.language-js::before { content: "JavaScript"; }
+pre.language-python::before,
+pre.language-py::before { content: "Python"; }
+pre.language-bash::before,
+pre.language-shell::before,
+pre.language-sh::before { content: "Terminal"; }
+pre.language-html::before { content: "HTML"; }
+pre.language-css::before { content: "CSS"; }
+pre.language-scss::before,
+pre.language-sass::before { content: "SCSS"; }
+pre.language-java::before { content: "Java"; }
+pre.language-cpp::before,
+pre.language-c++::before { content: "C++"; }
+pre.language-c::before { content: "C"; }
+pre.language-ruby::before,
+pre.language-rb::before { content: "Ruby"; }
+pre.language-php::before { content: "PHP"; }
+pre.language-go::before { content: "Go"; }
+pre.language-rust::before { content: "Rust"; }
+pre.language-swift::before { content: "Swift"; }
+pre.language-kotlin::before { content: "Kotlin"; }
+pre.language-typescript::before,
+pre.language-ts::before { content: "TypeScript"; }
+pre.language-json::before { content: "JSON"; }
+pre.language-xml::before { content: "XML"; }
+pre.language-yaml::before,
+pre.language-yml::before { content: "YAML"; }
+pre.language-markdown::before,
+pre.language-md::before { content: "Markdown"; }
+pre.language-sql::before { content: "SQL"; }
+pre.language-dockerfile::before { content: "Dockerfile"; }
+pre.language-nginx::before { content: "Nginx"; }
+pre.language-apache::before { content: "Apache"; }
+pre.language-vim::before { content: "Vim"; }
+pre.language-powershell::before,
+pre.language-ps1::before { content: "PowerShell"; }
+pre.language-r::before { content: "R"; }
+pre.language-matlab::before { content: "MATLAB"; }
+pre.language-lua::before { content: "Lua"; }
+pre.language-perl::before { content: "Perl"; }
+pre.language-haskell::before { content: "Haskell"; }
+pre.language-scala::before { content: "Scala"; }
+pre.language-clojure::before { content: "Clojure"; }
+pre.language-elixir::before { content: "Elixir"; }
+pre.language-erlang::before { content: "Erlang"; }
+pre.language-dart::before { content: "Dart"; }
+pre.language-assembly::before,
+pre.language-asm::before { content: "Assembly"; }
+pre.language-makefile::before { content: "Makefile"; }
+pre.language-cmake::before { content: "CMake"; }
+pre.language-tex::before,
+pre.language-latex::before { content: "LaTeX"; }
+.highlight .c,
+.highlight .ch,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs { color: #6c7986; } /* Comments */
+
+.highlight .k,
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt { color: #ff79c6; } /* Keywords */
+
+.highlight .s,
+.highlight .sa,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .s1,
+.highlight .ss { color: #f1fa8c; } /* Strings */
+
+.highlight .n,
+.highlight .na,
+.highlight .nc,
+.highlight .no,
+.highlight .nd,
+.highlight .ni,
+.highlight .ne,
+.highlight .nf,
+.highlight .nl,
+.highlight .nn,
+.highlight .nx,
+.highlight .py,
+.highlight .nt,
+.highlight .nv { color: #50fa7b; } /* Names/Variables */
+
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .mb,
+.highlight .il { color: #bd93f9; } /* Numbers */
+
+.highlight .o,
+.highlight .ow { color: #ff79c6; } /* Operators */
+
+.highlight .p { color: #f8f8f2; } /* Punctuation */
+
+.highlight .gh { color: #8be9fd; font-weight: bold; } /* Generic Heading */
+.highlight .gu { color: #8be9fd; } /* Generic Subheading */
+.highlight .gd { color: #ff5555; } /* Generic Deleted */
+.highlight .gi { color: #50fa7b; } /* Generic Inserted */
+
+/* Special styling for shell/terminal commands */
+.language-bash .highlight .nv,
+.language-shell .highlight .nv,
+.language-sh .highlight .nv { color: #8be9fd; }
+
+.language-bash .highlight .nb,
+.language-shell .highlight .nb,
+.language-sh .highlight .nb { color: #50fa7b; }
+
+/* Prompt styling for shell commands */
+.language-bash::before,
+.language-shell::before,
+.language-sh::before {
+  content: "$ ";
+  color: #50fa7b;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Scrollbar styling for code blocks */
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  pre code, code[class*="language-"] {
+    font-size: 12px;
+    padding: 16px 20px 20px 20px;
+  }
+  
+  pre::after {
+    transform: scale(0.8);
+    top: 7px;
+    left: 8px;
+  }
+}
