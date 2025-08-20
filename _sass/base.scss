@@ -122,9 +122,9 @@ pre, pre[class*="language-"] {
   position: relative;
 }
 
-/* Terminal header bar */
+/* Terminal header bar - default styling */
 pre::before {
-  content: "Terminal";
+  content: "Code";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,61 +177,60 @@ pre code, code[class*="language-"] {
   border: 1px solid #444;
 }
 
-/* Language-specific terminal titles */
-pre[class*="language-"]::before { content: attr(class); }
-pre.language-javascript::before,
-pre.language-js::before { content: "JavaScript"; }
-pre.language-python::before,
-pre.language-py::before { content: "Python"; }
-pre.language-bash::before,
-pre.language-shell::before,
-pre.language-sh::before { content: "Terminal"; }
-pre.language-html::before { content: "HTML"; }
-pre.language-css::before { content: "CSS"; }
-pre.language-scss::before,
-pre.language-sass::before { content: "SCSS"; }
-pre.language-java::before { content: "Java"; }
-pre.language-cpp::before,
-pre.language-c++::before { content: "C++"; }
-pre.language-c::before { content: "C"; }
-pre.language-ruby::before,
-pre.language-rb::before { content: "Ruby"; }
-pre.language-php::before { content: "PHP"; }
-pre.language-go::before { content: "Go"; }
-pre.language-rust::before { content: "Rust"; }
-pre.language-swift::before { content: "Swift"; }
-pre.language-kotlin::before { content: "Kotlin"; }
-pre.language-typescript::before,
-pre.language-ts::before { content: "TypeScript"; }
-pre.language-json::before { content: "JSON"; }
-pre.language-xml::before { content: "XML"; }
-pre.language-yaml::before,
-pre.language-yml::before { content: "YAML"; }
-pre.language-markdown::before,
-pre.language-md::before { content: "Markdown"; }
-pre.language-sql::before { content: "SQL"; }
-pre.language-dockerfile::before { content: "Dockerfile"; }
-pre.language-nginx::before { content: "Nginx"; }
-pre.language-apache::before { content: "Apache"; }
-pre.language-vim::before { content: "Vim"; }
-pre.language-powershell::before,
-pre.language-ps1::before { content: "PowerShell"; }
-pre.language-r::before { content: "R"; }
-pre.language-matlab::before { content: "MATLAB"; }
-pre.language-lua::before { content: "Lua"; }
-pre.language-perl::before { content: "Perl"; }
-pre.language-haskell::before { content: "Haskell"; }
-pre.language-scala::before { content: "Scala"; }
-pre.language-clojure::before { content: "Clojure"; }
-pre.language-elixir::before { content: "Elixir"; }
-pre.language-erlang::before { content: "Erlang"; }
-pre.language-dart::before { content: "Dart"; }
-pre.language-assembly::before,
-pre.language-asm::before { content: "Assembly"; }
-pre.language-makefile::before { content: "Makefile"; }
-pre.language-cmake::before { content: "CMake"; }
-pre.language-tex::before,
-pre.language-latex::before { content: "LaTeX"; }
+/* Language-specific terminal titles - Jekyll/Rouge structure */
+.language-javascript .highlight pre::before,
+.language-js .highlight pre::before { content: "JavaScript" !important; }
+.language-python .highlight pre::before,
+.language-py .highlight pre::before { content: "Python" !important; }
+.language-bash .highlight pre::before,
+.language-shell .highlight pre::before,
+.language-sh .highlight pre::before { content: "Terminal" !important; }
+.language-html .highlight pre::before { content: "HTML" !important; }
+.language-css .highlight pre::before { content: "CSS" !important; }
+.language-scss .highlight pre::before,
+.language-sass .highlight pre::before { content: "SCSS" !important; }
+.language-java .highlight pre::before { content: "Java" !important; }
+.language-cpp .highlight pre::before,
+.language-c++ .highlight pre::before { content: "C++" !important; }
+.language-c .highlight pre::before { content: "C" !important; }
+.language-ruby .highlight pre::before,
+.language-rb .highlight pre::before { content: "Ruby" !important; }
+.language-php .highlight pre::before { content: "PHP" !important; }
+.language-go .highlight pre::before { content: "Go" !important; }
+.language-rust .highlight pre::before { content: "Rust" !important; }
+.language-swift .highlight pre::before { content: "Swift" !important; }
+.language-kotlin .highlight pre::before { content: "Kotlin" !important; }
+.language-typescript .highlight pre::before,
+.language-ts .highlight pre::before { content: "TypeScript" !important; }
+.language-json .highlight pre::before { content: "JSON" !important; }
+.language-xml .highlight pre::before { content: "XML" !important; }
+.language-yaml .highlight pre::before,
+.language-yml .highlight pre::before { content: "YAML" !important; }
+.language-markdown .highlight pre::before,
+.language-md .highlight pre::before { content: "Markdown" !important; }
+.language-sql .highlight pre::before { content: "SQL" !important; }
+.language-dockerfile .highlight pre::before { content: "Dockerfile" !important; }
+.language-nginx .highlight pre::before { content: "Nginx" !important; }
+.language-apache .highlight pre::before { content: "Apache" !important; }
+.language-vim .highlight pre::before { content: "Vim" !important; }
+.language-powershell .highlight pre::before,
+.language-ps1 .highlight pre::before { content: "PowerShell" !important; }
+.language-r .highlight pre::before { content: "R" !important; }
+.language-matlab .highlight pre::before { content: "MATLAB" !important; }
+.language-lua .highlight pre::before { content: "Lua" !important; }
+.language-perl .highlight pre::before { content: "Perl" !important; }
+.language-haskell .highlight pre::before { content: "Haskell" !important; }
+.language-scala .highlight pre::before { content: "Scala" !important; }
+.language-clojure .highlight pre::before { content: "Clojure" !important; }
+.language-elixir .highlight pre::before { content: "Elixir" !important; }
+.language-erlang .highlight pre::before { content: "Erlang" !important; }
+.language-dart .highlight pre::before { content: "Dart" !important; }
+.language-assembly .highlight pre::before,
+.language-asm .highlight pre::before { content: "Assembly" !important; }
+.language-makefile .highlight pre::before { content: "Makefile" !important; }
+.language-cmake .highlight pre::before { content: "CMake" !important; }
+.language-tex .highlight pre::before,
+.language-latex .highlight pre::before { content: "LaTeX" !important; }
 .highlight .c,
 .highlight .ch,
 .highlight .cm,
