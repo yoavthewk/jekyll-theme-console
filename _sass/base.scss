@@ -300,15 +300,15 @@ pre code, code[class*="language-"] {
 .language-shell .highlight .nb,
 .language-sh .highlight .nb { color: #50fa7b; }
 
-/* Prompt styling for shell commands */
-.language-bash::before,
-.language-shell::before,
-.language-sh::before {
-  content: "$ ";
-  color: #50fa7b;
-  font-weight: bold;
-  user-select: none;
-}
+// /* Prompt styling for shell commands */
+// .language-bash::before,
+// .language-shell::before,
+// .language-sh::before {
+//   content: "$ ";
+//   color: #50fa7b;
+//   font-weight: bold;
+//   user-select: none;
+// }
 
 /* Scrollbar styling for code blocks */
 pre::-webkit-scrollbar {
