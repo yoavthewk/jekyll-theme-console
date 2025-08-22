@@ -166,16 +166,35 @@ pre code, code[class*="language-"] {
   white-space: pre;
 }
 
-/* Inline code */
-:not(pre) > code {
+/* Inline code - no terminal styling */
+:not(pre) > code,
+p code,
+li code,
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
   background: #2d2d2d !important;
   color: #f8f8f2 !important;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
-  font-size: 0.9em;
-  border: 1px solid #444;
+  padding: 3px 6px !important;
+  border-radius: 4px !important;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace !important;
+  font-size: 0.9em !important;
+  border: 1px solid #444 !important;
+  display: inline !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  position: static !important;
 }
+
+/* Make sure inline code doesn't get terminal headers */
+:not(pre) > code::before,
+:not(pre) > code::after,
+p code::before,
+p code::after,
+li code::before,
+li code::after {
+  display: none !important;
+  content: none !important;
+}
+
 
 /* Language-specific terminal titles - Jekyll/Rouge structure */
 .language-javascript .highlight pre::before,

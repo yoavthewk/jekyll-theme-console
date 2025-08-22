@@ -13,3 +13,5 @@ int main() {
     printf("joe biden");
 }
 ```
+
+try out some inline `code`.
